@@ -140,3 +140,27 @@ const gerente = new Funcionario("111.111.111-11", "José", "(11) 98765-4321", 50
 const atendente = new Funcionario("222.222.222-22", "Maria", "(11) 99999-8888", 2500);
 console.log("Gerente:", gerente);
 console.log("Atendente:", atendente);
+
+// Aplicação 2 - Criar um cliente com 3 endereços para UM cliente
+console.log("--- Aplicação 2 ---");
+const endereco1 = new Endereco("12345-678", "Rua A", "123", "Apto 101", "São Paulo", "SP");
+const endereco2 = new Endereco("54321-987", "Rua B", "456", "", "Rio de Janeiro", "RJ");
+const endereco3 = new Endereco("98765-432", "Rua C", "789", "Casa", "Belo Horizonte", "MG");
+
+const cliente = new Cliente("333.333.333-33", "Ana Cliente", "(11) 11111-2222", true, [
+  endereco1,
+  endereco2,
+  endereco3,
+]);
+
+cliente.listarEnderecos();
+
+// Aplicação 3 - Criar cliente > Fazer 3 depositos de 100 em contaCorrente > saque de 50 em contaCorreio > imprimir valor
+console.log("\n--- Aplicação 3 ---");
+const contaCorrenteCliente = new ContaCorrente("12345", 1000);
+contaCorrenteCliente.depositar(100);
+contaCorrenteCliente.depositar(100);
+contaCorrenteCliente.depositar(100);
+contaCorrenteCliente.sacar(50);
+
+console.log("Saldo da conta corrente:", contaCorrenteCliente.calcularSaldo());
