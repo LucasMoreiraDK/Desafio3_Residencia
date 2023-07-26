@@ -164,3 +164,29 @@ contaCorrenteCliente.depositar(100);
 contaCorrenteCliente.sacar(50);
 
 console.log("Saldo da conta corrente:", contaCorrenteCliente.calcularSaldo());
+
+
+
+// Aplicação 4  -- Criar cliente com contaCorrente > Deposito de 1000 na contacorrente > criar cliente com contaPoupança > deposito de 100 na contaPoupança > transferir 500 reais da ContaCorrente para ContaPoupanca > Exibir saldo de ambas as contas
+console.log("--- Aplicação 4 ---");
+const contaCorrenteCliente2 = new ContaCorrente("54321", 500);
+contaCorrenteCliente2.depositar(1000);
+
+const contaPoupancaCliente = new ContaPoupanca("98765");
+contaPoupancaCliente.depositar(1000);
+
+contaCorrenteCliente2.transferir(contaPoupancaCliente, 500);
+
+console.log("Saldo da conta-corrente:", contaCorrenteCliente2.calcularSaldo());
+console.log("Saldo da conta-poupança:", contaPoupancaCliente.calcularSaldo());
+
+// Aplicação 5 - Criar Cliente com conta corrente > deoisuti de 300 > limite contacorrente para 100 > criar outro cliente com contacorrente > tentar transferir 1000 da primeira conta pra segunda
+console.log("--- Aplicação 5 ---");
+const contaCorrenteCliente3 = new ContaCorrente("11111", 0, 300);
+contaCorrenteCliente3.depositar(300);
+contaCorrenteCliente3.limite = 100;
+
+const contaCorrenteCliente4 = new ContaCorrente("22222", 0);
+contaCorrenteCliente4.depositar(100);
+
+contaCorrenteCliente3.transferir(contaCorrenteCliente4, 1000);
